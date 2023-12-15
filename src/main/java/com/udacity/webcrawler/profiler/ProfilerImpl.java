@@ -6,12 +6,15 @@ import java.io.Writer;
 import java.lang.reflect.Proxy;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.time.Clock;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static java.nio.file.StandardOpenOption.APPEND;
+import static java.nio.file.StandardOpenOption.CREATE;
 import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 
 /**
@@ -46,9 +49,7 @@ final class ProfilerImpl implements Profiler {
 
   @Override
   public void writeData(Path path) throws IOException {
-    // TODO: Write the ProfilingState data to the given file path. If a file already exists at that
-    //       path, the new data should be appended to the existing file.
-    try (var writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)){
+    try (var writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8, CREATE, APPEND)){
       writeData(writer);
     }
   }

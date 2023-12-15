@@ -14,7 +14,7 @@ final class WordCounts {
     /**
      * Given an unsorted map of word counts, returns a new map whose word counts are sorted according
      * to the provided {@link WordCountComparator}, and includes only the top
-     * {@param popluarWordCount} words and counts.
+     * {@param popularWordCount} words and counts.
      *
      *
      * references.

@@ -51,7 +51,7 @@ final class ProfilingState {
     // We have to use a for-loop here instead of a Stream API method because Writer#write() can
     // throw an IOException, and lambdas are not allowed to throw checked exceptions.
     for (String entry : entries) {
-      writer.write(entry);
+      writer.append(entry);
     }
   }
 
